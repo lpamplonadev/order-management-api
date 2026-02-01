@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 @Entity
 @Table(name = "order_items", uniqueConstraints = {
-  @UniqueConstraint(name = "uk_order_item_order_product", columnNames = {"order_id", "product_id"})
+    @UniqueConstraint(name = "uk_order_item_order_product", columnNames = { "order_id", "product_id" })
 })
 public class OrderItem {
 
@@ -22,13 +22,11 @@ public class OrderItem {
   private UUID id;
 
   @ManyToOne(optional = false, fetch = FetchType.LAZY)
-  @JoinColumn(name = "order_id", nullable = false,
-      foreignKey = @ForeignKey(name = "fk_order_item_order"))
+  @JoinColumn(name = "order_id", nullable = false, foreignKey = @ForeignKey(name = "fk_order_item_order"))
   private Order order;
 
   @ManyToOne(optional = false, fetch = FetchType.LAZY)
-  @JoinColumn(name = "product_id", nullable = false,
-      foreignKey = @ForeignKey(name = "fk_order_item_product"))
+  @JoinColumn(name = "product_id", nullable = false, foreignKey = @ForeignKey(name = "fk_order_item_product"))
   private Product product;
 
   @Column(nullable = false)

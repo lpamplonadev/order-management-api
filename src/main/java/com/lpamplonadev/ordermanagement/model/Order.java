@@ -20,10 +20,9 @@ public class Order {
   private UUID id;
 
   @ManyToOne(optional = false, fetch = FetchType.LAZY)
-  @JoinColumn(name = "user_id", nullable = false,
-      foreignKey = @ForeignKey(name = "fk_order_user"))
+  @JoinColumn(name = "user_id", nullable = false, foreignKey = @ForeignKey(name = "fk_order_user"))
   private User user;
-  
+
   @Enumerated(EnumType.STRING)
   @Column(nullable = false, length = 20)
   private OrderStatus status;

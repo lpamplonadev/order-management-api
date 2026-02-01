@@ -15,7 +15,7 @@ import lombok.*;
 @Entity
 @Table(name = "products")
 public class Product {
-  
+
   @Id
   @GeneratedValue
   private UUID id;
