@@ -22,12 +22,7 @@ public class ProductService {
   private final ProductMapper productMapper;
 
   public ProductResponse create(ProductCreateRequest request) {
-    Product product = Product.builder()
-        .name(request.name())
-        .price(request.price())
-        .active(true)
-        .build();
-
+    Product product = productMapper.toEntity(request);
     Product saved = productRepository.save(product);
     return productMapper.toResponse(saved);
   }
